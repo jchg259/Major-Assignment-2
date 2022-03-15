@@ -77,6 +77,12 @@
             // convert topology data to geojson 
             const geojson = topojson.feature(topo_data, topo_data.objects.ma);
 
+            /*geojson["features"].map((d,i)=> {
+                geojson["features"][i]["properties"]["POP_DIFF_00_10"] =
+                d["properties"]["FIPS_STCO"],d["properties"]["POP2010"]-d["properties"]["POP2000"]
+
+            })*/
+
             /*-------------------------------------------------------*/
             /*----------------------Projections----------------------*/
             /*-------------------------------------------------------*/
@@ -139,7 +145,7 @@
                 .append("path")
                 .attr("d", d => geoPath_generator(d))
                 //.attr("fill", d => colorInterpolator(logScale(d['properties']['POP2010'])))
-                .attr("fill", d => colorInterpolator(linearScale(d['properties']['POP2010'])))
+                .attr("fill", d => colorInterpolator(linearScale(d['properties']['POPCH00_10'])))
                 .on("mouseenter", (m, d) => {
                     tooltip.transition()
                         .duration(200)

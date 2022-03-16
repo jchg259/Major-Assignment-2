@@ -161,7 +161,7 @@
                 //.attr("fill", d => colorInterpolator(logScale(d['properties']['POP2010'])))
                 //.attr("fill", d => colorInterpolator(linearScale(d['properties']['POPCH00_10'])))
                 .on("mouseenter", (m, d) => {
-                    d3.selectAll('.c${d["properties"]["FIPS_STCO"]}').classed("active",true)
+                    d3.selectAll(`.c${d["properties"]["FIPS_STCO"]}`).classed("active",true)
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", .9)
@@ -173,7 +173,7 @@
                     tooltip.style("opacity", .9)
                 })
                 .on("mouseout", (m, d) => {
-                    d3.selectAll("c${d['properties']['FIPS_STCO']}").classed("active",true)
+                    d3.selectAll(`.c${d['properties']['FIPS_STCO']}`).classed("active",true)
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", 0)
